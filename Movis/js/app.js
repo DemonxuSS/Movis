@@ -120,61 +120,55 @@ function searchActor(term) {
     //$(".userform").hide();
 }
 
-const getTodoItems = async () => {
-	try {
-	  const response = await axios.get(`${BASE_URL}/getusers`);
-  
-	  const todoItems = response.data;
-  
-	  console.log(`GET: Here's the list of todos`, todoItems);
-  
-	  return todoItems;
-	} catch (errors) {
-	  console.error(errors);
-	}
-  };
-
 function register(){
-	var username = $("usernameRegister").getData;
-	var password = $("passwordRegister").getData;
-    var email = $(".emailRegister").getData;
-
+	var username = document.getElementById("usernameRegister").value;
+	var password = document.getElementById("passwordRegister").value;
+	var email = document.getElementById("emailRegister").value;
 	const encoded = encodeURI(email);
 
-	httpReq.open("POST", "http://localhost:8080/users/adduser?email=" + email + "&password=" + password + "&userName=" + username, true);
-	httpReq.send();
+	try {
+		const response = axios.post(`${BASE_URL}/users/adduser?email=${encoded}&password=${password}&userName=${username}&userid=1`);
+	
+		const exists = response.data;
+
+		console.log(`GET: Here's the list of todos`, response);
+	
+		return response;
+	  } catch (errors) {
+		console.error(errors);
+	  }
 }
 
 function login(){
-    var username = $("username").getData;
-    var password = $("password").getData;
-	var exists = false;
-	httpReq.open("GET", "http://localhost:8080/users/login?password=" + password + "&username=" + username, true);
-	httpReq.send();
-	httpReq.onload  = function() {
-		if (httpReq.readyState == 4 && httpReq.status == 200) {
-			exists = JSON.parse(httpReq.response).results;
-		}
-	//localStorage.setItem("lastname", "Smith");
-	if(exists)
-	searchMovie("harry");
-	}
-	searchMovie("harry");
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	try {
+		const response = axios.get(`${BASE_URL}/users/login?password=${password}&username=${username}`);
+	
+		const exists = response.data;
+
+		console.log(`GET: Here's the list of todos`, response);
+	
+		return response;
+	  } catch (errors) {
+		console.error(errors);
+	  }
 }
+
+const apiLogin = async ({login, password})=>{
+	await axios.get(`${BASE_URL}/users/login?password=${password}&username=${username}`)
+	.then(res=>{
+
+	})
+	.catch(e=>{
+		console.log(e)
+	})
+}
+
+
 
 $(window).on("load", function() {
 	$("#loading").fadeOut(1000, function() {
 		$("body").css("overflow", "auto");
-		try {
-			const response = axios.get(`${BASE_URL}/getusers`);
-		
-			const todoItems = response.data;
-		
-			console.log(`GET: Here's the list of todos`, todoItems);
-		
-			return todoItems;
-		  } catch (errors) {
-			console.error(errors);
-		  }
 	})
 })

@@ -12,6 +12,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://127.0.0.1:5500", maxAge = 3600)
 public class UserController {
     private final UserRepository userRepository;
 
@@ -45,6 +46,9 @@ public class UserController {
     @CrossOrigin(origins = "*")
     @GetMapping("/login")
     public boolean login(@RequestParam String username, @RequestParam String password) {
+        if(userRepository.findByUserName(username) == null)
+            return false;
+
         User temp = userRepository.findByUserName(username);
         if(temp.getPassword().equals(password))
             return true;
