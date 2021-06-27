@@ -20,7 +20,6 @@ Po najechaniu na zdjęcie pokazuje się jego tytuł, opis oraz ocena w skali 0-1
 
 Wyszukiwanie aktorów polega mniej więcej na tym samym, z tym, że po najechaniu na aktora wyświetla się jego imię, filmy, z których jest znany oraz popularność.
 Jeśli API nie posiada zdjęcia aktora, jest ono zastępowane domyślną grafiką wektorową(pic.svg).
-Teoretycznie, można uznać to API jako bazę danych, która ma dostęp online i jedyne co można w niej zrobić to READ, ale to raczej nie ma sensu.
 
 Pod rozwijaną listą "Check for..." można sprawdzić:
 Tytuły grane w ostatnim czasie w kinach,
@@ -31,10 +30,10 @@ Dzienne trendy,
 Nadchodzące tytuły,
 Popularnych aktorów
 
-Strona miała oferować możliwość logowania i rejestracji. Poza tym parę funkcjonalności więcej, ale nie udało mi się tego zaimplementować.
+Strona oferuje możliwość logowania i rejestracji. Niestety nie udało mi się tego zaimplementować tego co planowałem(nie ma strony użytkownika).
 Napisałem serwer Backend, jest nawet dostępny online, baza danych również. Kod do backend'u również znajduje się w folderze z projektem.
 
-Sama strona jest responsywna. Sprawdzałem na telefonie. Najwięcej czasu poświęciłem na responsywność, bo w pewnym momencie tworzenia jej, zorientowałem się, że responsywna nie jest.
+Sama strona jest responsywna. Sprawdzałem na telefonie i na "google checker". Najwięcej czasu poświęciłem na responsywność, bo w pewnym momencie tworzenia jej, zorientowałem się, że responsywna nie jest.
 Stronę wrzuciłem na kilka hostingów. Ich adresy to:
 
 http://movis.cba.pl/ (niestety, coś w niej chyba szwankuje. Nie czyta całości .css. Strona lokalnie działa lepiej. Spowodowało to, że między .css, a html może istnieć jakaś redundancja kodu, lub to, że kod html różni się nieco od kodu html strony na hostingu)
