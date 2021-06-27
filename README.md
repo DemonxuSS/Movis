@@ -30,7 +30,7 @@ Dzienne trendy,
 Nadchodzące tytuły,
 Popularnych aktorów
 
-Strona oferuje możliwość logowania i rejestracji. Niestety nie udało mi się tego zaimplementować tego co planowałem(nie ma strony użytkownika).
+Strona oferuje możliwość logowania i rejestracji. Niestety nie udało mi się tego zaimplementować tego co planowałem(nie ma strony użytkownika itd.).
 Napisałem serwer Backend, jest nawet dostępny online, baza danych również. Kod do backend'u również znajduje się w folderze z projektem.
 
 Sama strona jest responsywna. Sprawdzałem na telefonie i na "google checker". Najwięcej czasu poświęciłem na responsywność, bo w pewnym momencie tworzenia jej, zorientowałem się, że responsywna nie jest.
