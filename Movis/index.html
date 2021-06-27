@@ -1,0 +1,106 @@
+
+
+<html>
+    <head>
+       <title> Movis </title>
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="css/index.css">
+       <link rel="icon" like href="images/logo.png" type="image">
+    </head>
+    <body style="background-image: url('images/background.jpg');">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <script src="js/app.js"></script>
+       <script src="js/themoviedb.js"></script> 
+       <div class="topnav" style="background-color: black; overflow: hidden;">
+          <a href="#home" class="active" style="font-size: 26px; margin-top: 0.3vw; color: azure; font-weight: bold; text-decoration: none;">M『o』『v』『i』『s』</a>
+          <section id="search">
+             <div class="userForm py-2">
+                <div style="display:inline-block; margin-right: 30px; ">
+                   <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color: azure; text-decoration: none;">Check for...<strong class="caret"></strong></a>
+                   <div class="dropdown-menu" style="background-color: black;">
+                         <li onclick="getData('movie/now_playing')" id="now_playing" class="liEle li1 py-2"><a class="nav-category" href="#" style="text-decoration: none; color: azure;">Now playing</a></li>
+                         <li onclick="getData('movie/popular')" id="popular" class="liEle li2 py-2"><a class="nav-category" href="#" style="text-decoration: none; color: azure;">Popular</a></li>
+                         <li onclick="getData('movie/top_rated')" id="top_rated" class="liEle li3 py-2"><a class="nav-category" href="#" style="text-decoration: none; color: azure;">Top Rated</a></li>
+                         <li onclick="getData('trending/movie/week')" id="trending" class="liEle li4 py-2"><a class="nav-category" href="#" style="text-decoration: none; color: azure;">Weekly Trends</a></li>
+                         <li onclick="getData('trending/movie/day')" id="trending" class="liEle li4 py-2"><a class="nav-category" href="#" style="text-decoration: none; color: azure;">Daily Trends</a></li>
+                         <li onclick="getData('movie/upcoming')" id="upcoming" class="liEle li5 py-2"><a class="nav-category" href="#" style="text-decoration: none; color: azure;">Upcoming</a></li>
+                         <li onclick="getData('person/popular')" id="personpopular" class="liEle li5 py-2"><a class="nav-category" href="#" style="text-decoration: none; color: azure;">Popular actors</a></li>
+                   </div>
+                </div>
+                <div style="display:inline-block; margin-right: 30px; text-align: center;">
+                   <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color: azure; text-decoration: none;">Register<strong class="caret"></strong></a>
+                   <div class="dropdown-menu" style="background-color: black;">
+                      <form id="ajax-register-form" autocomplete="off">
+                         <div class="form-group">
+                            <input type="text" name="usernameRegister" id="usernameRegister" tabindex="1" class="form-control" placeholder="Username" value="">
+                         </div>
+                         <div class="form-group">
+                            <input type="email" name="emailRegister" id="emailRegister" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                         </div>
+                         <div class="form-group">
+                            <input type="password" name="passwordRegister" id="passwordRegister" tabindex="2" class="form-control" placeholder="Password">
+                         </div>
+                         <div class="form-group">
+                            <div class="row">
+                               <div class="col-xs-6 col-xs-offset-3" style="margin-left:66px;">
+                                  <input type="submit" onclick="register()" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
+                               </div>
+                            </div>
+                         </div>
+                         <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
+                      </form>
+                   </div>
+                </div>
+                <div style="display:inline-block;">
+                   <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color: azure; text-decoration: none;">Log in<strong class="caret"></strong></a>
+                   <div class="dropdown-menu" style="background-color: black;">
+                      <form id="ajax-login-form" role="form" autocomplete="off">
+                         <div class="form-group">
+                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off">
+                         </div>
+                         <div class="form-group">
+                            <input  type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+                         </div>
+                         <div class="form-group">
+                            <div class="row">
+                               <div class="col-xs-5 pull-right" style="margin-left:95px;">
+                                  <input type="submit" onclick="login()" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
+                               </div>
+                            </div>
+                         </div>
+                         <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+                      </form>
+                   </div>
+                </div>
+             </div>
+       </div>
+       </section>
+       <div class="container py-2" style="margin-top: -2vw;" >
+          <div class="row" >
+             <div class="col-md-6">
+                <input onkeyup="searchMovie(this.value)" onfocus="this.value=''" placeholder="Search for movi" class=" w-100  searchMovieInput" >
+             </div>
+             <div class="col-md-6">
+                <input onkeyup="searchActor(this.value)" onfocus="this.value=''" placeholder="Search for actor" class=" w-100  searchActorInput">
+             </div>
+          </div>
+       </div>
+       </div>
+       <section class="showMovie">
+          <div class="container">
+             <div class="row" id="moviesRow">
+             </div>
+          </div>
+       </section>
+       <section id="loading" class=" ">
+       </section>
+    </body>
+ </html>
+ 
+ 
