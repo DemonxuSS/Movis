@@ -18,7 +18,7 @@ function getData(param) {
             displayActors();
 		}
 	}
-
+	
 }
 
 
@@ -127,7 +127,7 @@ function register(){
 	const encoded = encodeURI(email);
 
 	try {
-		const response = axios.post(`${BASE_URL}/users/adduser?email=${encoded}&password=${password}&userName=${username}&userid=1`);
+		const response = axios.post(`${BASE_URL}/users/adduser?email=${encoded}&password=${password}&userName=${username}&userid=0`);
 	
 		const exists = response.data;
 
@@ -139,23 +139,25 @@ function register(){
 	  }
 }
 
-function login(){
+async function login(){
+
 	var username = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
-	try {
-		const response = axios.get(`${BASE_URL}/users/login?password=${password}&username=${username}`);
-	
-		const exists = response.data;
 
-		console.log(`GET: Here's the list of todos`, response);
-	
-		return response;
-	  } catch (errors) {
-		console.error(errors);
-	  }
-}
+	let res = await axios.get(`${BASE_URL}/users/login?password=${password}&username=${username}`);
 
-const apiLogin = async ({login, password})=>{
+	let userData = res.data;
+
+	document.getElementById("profile").style.display = "block";
+	document.getElementById("loggedUsername").textContent = userData.userName;
+	document.getElementById("loggedEmail").textContent = userData.email;
+
+	localStorage.setItem('Username', userData.userName);
+	localStorage.setItem('Password', userData.password);
+	localStorage.setItem('Email', userData.email);
+  }
+
+const apiLogin = async ({username, password})=>{
 	await axios.get(`${BASE_URL}/users/login?password=${password}&username=${username}`)
 	.then(res=>{
 
@@ -165,10 +167,14 @@ const apiLogin = async ({login, password})=>{
 	})
 }
 
-
-
 $(window).on("load", function() {
 	$("#loading").fadeOut(1000, function() {
+		if(localStorage.getItem('Username') != null)
+		{
+			document.getElementById("profile").style.display = "block";
+			document.getElementById("loggedUsername").textContent = localStorage.getItem('Username');
+			document.getElementById("loggedEmail").textContent = localStorage.getItem('Email');
+		}
 		$("body").css("overflow", "auto");
 	})
 })

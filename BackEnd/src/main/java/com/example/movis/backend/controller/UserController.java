@@ -45,14 +45,13 @@ public class UserController {
 
     @CrossOrigin(origins = "*")
     @GetMapping("/login")
-    public boolean login(@RequestParam String username, @RequestParam String password) {
-        if(userRepository.findByUserName(username) == null)
-            return false;
-
+    public User login(@RequestParam String username, @RequestParam String password) {
         User temp = userRepository.findByUserName(username);
-        if(temp.getPassword().equals(password))
-            return true;
+        if(temp == null)
+            return null;
+        else if (temp.getPassword().equals(password))
+            return temp;
         else
-            return false;
+            return null;
     }
 }

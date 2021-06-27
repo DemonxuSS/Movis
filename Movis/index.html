@@ -17,6 +17,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
        <script src="js/app.js"></script>
        <script src="js/themoviedb.js"></script> 
+
        <div class="topnav" style="background-color: black; overflow: hidden;">
           <a href="#home" class="active" style="font-size: 26px; margin-top: 0.3vw; color: azure; font-weight: bold; text-decoration: none;">M『o』『v』『i』『s』</a>
           <section id="search">
@@ -100,6 +101,18 @@
        </section>
        <section id="loading" class=" ">
        </section>
+       
+       <div id="profile" style="position: fixed; right: 1vw; padding: 1vw; top: 3vw; display: none;">
+         <div class="userInfo rounded" style="position: fixed; right: 1vw; width: 10vw; background-color: grey;">
+             <div class="d-flex align-items-center">
+                 <div class="loggedAvatar"> <img src="images/pic.svg" class="rounded" style="width: 2vw;"> </div>
+                 <div class="ml-3">
+                     <p id="loggedUsername" style="font-size: 1vw;">Username</p>
+                     <a id="loggedEmail" style="font-size: 0.7vw;">Email</a>
+                 </div>
+             </div>
+         </div>
+     </div>
     </body>
  </html>
  
