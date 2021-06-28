@@ -46,4 +46,7 @@ Stronę wrzuciłem na kilka hostingów. Ich adresy to:
 
 * http://movis.cba.pl/ (niestety, coś w niej chyba szwankuje. Nie czyta całości .css. Strona lokalnie działa lepiej. Spowodowało to, że między .css, a html może istnieć jakaś redundancja kodu, lub to, że kod html różni się nieco od kodu html strony na hostingu)
 
-* https://mohrm.vot.pl/movis/ (tutaj podobnie, .css nie chce się załadować. Dziwne jest to jak różnie te hostingi reagują. Wrzuciłem ten sam kod na obydwa, a efekty były różne. Teraz myślę, że może być to też wina kodowania lub interpretera?)
+* https://mohrm.vot.pl/movis/ (tutaj podobnie, niektóre rzeczy z .css nie chcą się załadować. Dziwne jest to jak różnie te hostingi reagują. Wrzuciłem ten sam kod na obydwa, a efekty były różne. Teraz myślę, że może być to też wina kodowania lub interpretera?)
+
+
+Edit: Na hostingu cba.pl znajduje się najnowsze wydanie. Na vot.pl jest przestarzały kod bez funkcjonalności użytkownika. Zmieniłem "BASE_URL" zapytań na ten do serwera online.
