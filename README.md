@@ -30,10 +30,11 @@ Dzienne trendy,
 Nadchodzące tytuły,
 Popularnych aktorów
 
-Strona oferuje możliwość logowania i rejestracji. Skrypt zapisuje dane do localStorage, więc nie trzeba się wciąż logować.
+Strona oferuje możliwość logowania i rejestracji.
 Po zalogowaniu pojawia się okienko użytkownika, w nim informacje o nazwie, emailu, zdjęciu, oraz przycisk do usuwania konta. Po usunięciu konta dane z przeglądarki są czyszczone.
 Napisałem serwer Backend, jest dostępny online, baza danych również. Kod do backend'u również znajduje się w folderze z projektem.
-URL serwera online:
+
+URL serwera backend online:
 * https://vmi616437.contaboserver.net/movies/
 
 IP bazy danych:
