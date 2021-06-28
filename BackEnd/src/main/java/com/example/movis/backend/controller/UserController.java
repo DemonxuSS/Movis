@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
+import java.beans.Transient;
 import java.util.*;
 
 
@@ -38,9 +40,11 @@ public class UserController {
     }
 
     @CrossOrigin(origins = "*")
+    @Transactional
     @DeleteMapping("/deleteuser")
-    public User deleteuser(@RequestParam long id){
-        return userRepository.deleteUserByUserid(id);
+    public void deleteUser(@RequestParam String id){
+        Long variable = Long.valueOf(id);
+        userRepository.deleteUserByUserid(variable);
     }
 
     @CrossOrigin(origins = "*")

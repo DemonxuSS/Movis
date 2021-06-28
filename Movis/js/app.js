@@ -155,7 +155,21 @@ async function login(){
 	localStorage.setItem('Username', userData.userName);
 	localStorage.setItem('Password', userData.password);
 	localStorage.setItem('Email', userData.email);
+	localStorage.setItem('Id', userData.userid);
   }
+
+async function deleteAcc(){
+
+	var id = localStorage.getItem('Id');
+
+	await axios.delete(`${BASE_URL}/users/deleteuser?id=${id}`);
+
+	document.getElementById("profile").style.display = "none";
+	document.getElementById("loggedUsername").textContent = "Username";
+	document.getElementById("loggedEmail").textContent = "Email";
+
+	localStorage.clear();
+}
 
 const apiLogin = async ({username, password})=>{
 	await axios.get(`${BASE_URL}/users/login?password=${password}&username=${username}`)
@@ -169,6 +183,7 @@ const apiLogin = async ({username, password})=>{
 
 $(window).on("load", function() {
 	$("#loading").fadeOut(1000, function() {
+		localStorage.clear();
 		if(localStorage.getItem('Username') != null)
 		{
 			document.getElementById("profile").style.display = "block";
