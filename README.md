@@ -38,6 +38,6 @@ Napisałem serwer Backend, jest nawet dostępny online, baza danych również. K
 Sama strona jest responsywna. Sprawdzałem na telefonie i na "google checker". Najwięcej czasu poświęciłem na responsywność, bo w pewnym momencie tworzenia jej, zorientowałem się, że responsywna nie jest.
 Stronę wrzuciłem na kilka hostingów. Ich adresy to:
 
-http://movis.cba.pl/ (niestety, coś w niej chyba szwankuje. Nie czyta całości .css. Strona lokalnie działa lepiej. Spowodowało to, że między .css, a html może istnieć jakaś redundancja kodu, lub to, że kod html różni się nieco od kodu html strony na hostingu)
+* http://movis.cba.pl/ (niestety, coś w niej chyba szwankuje. Nie czyta całości .css. Strona lokalnie działa lepiej. Spowodowało to, że między .css, a html może istnieć jakaś redundancja kodu, lub to, że kod html różni się nieco od kodu html strony na hostingu)
 
-https://mohrm.vot.pl/movis/ (tutaj podobnie, .css nie chce się załadować. Dziwne jest to jak różnie te hostingi reagują. Wrzuciłem ten sam kod na obydwa, a efekty były różne. Teraz myślę, że może być to też wina kodowania lub interpretera?)
+* https://mohrm.vot.pl/movis/ (tutaj podobnie, .css nie chce się załadować. Dziwne jest to jak różnie te hostingi reagują. Wrzuciłem ten sam kod na obydwa, a efekty były różne. Teraz myślę, że może być to też wina kodowania lub interpretera?)
