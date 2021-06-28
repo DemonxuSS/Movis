@@ -32,8 +32,12 @@ Popularnych aktorów
 
 Strona oferuje możliwość logowania i rejestracji. Skrypt zapisuje dane do localStorage, więc nie trzeba się wciąż logować.
 Po zalogowaniu pojawia się okienko użytkownika, w nim informacje o nazwie, emailu, zdjęciu, oraz przycisk do usuwania konta. Po usunięciu konta dane z przeglądarki są czyszczone.
-Niestety nie udało mi się tego zaimplementować tego co planowałem.
-Napisałem serwer Backend, jest nawet dostępny online, baza danych również. Kod do backend'u również znajduje się w folderze z projektem.
+Napisałem serwer Backend, jest dostępny online, baza danych również. Kod do backend'u również znajduje się w folderze z projektem.
+URL serwera online:
+* https://vmi616437.contaboserver.net/movies/
+IP bazy danych:
+* 194.163.151.109:5432
+
 
 Sama strona jest responsywna. Sprawdzałem na telefonie i na "google checker". Najwięcej czasu poświęciłem na responsywność, bo w pewnym momencie tworzenia jej, zorientowałem się, że responsywna nie jest.
 Stronę wrzuciłem na kilka hostingów. Ich adresy to:
