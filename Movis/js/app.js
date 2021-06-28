@@ -147,6 +147,8 @@ async function login(){
 	let res = await axios.get(`${BASE_URL}/users/login?password=${password}&username=${username}`);
 
 	let userData = res.data;
+	if(userData.userName != undefined)
+	{
 
 	document.getElementById("profile").style.display = "block";
 	document.getElementById("loggedUsername").textContent = userData.userName;
@@ -156,6 +158,7 @@ async function login(){
 	localStorage.setItem('Password', userData.password);
 	localStorage.setItem('Email', userData.email);
 	localStorage.setItem('Id', userData.userid);
+	}
   }
 
 async function deleteAcc(){
