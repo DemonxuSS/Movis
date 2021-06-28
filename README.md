@@ -35,6 +35,7 @@ Po zalogowaniu pojawia się okienko użytkownika, w nim informacje o nazwie, ema
 Napisałem serwer Backend, jest dostępny online, baza danych również. Kod do backend'u również znajduje się w folderze z projektem.
 URL serwera online:
 * https://vmi616437.contaboserver.net/movies/
+
 IP bazy danych:
 * 194.163.151.109:5432
 
