@@ -31,6 +31,7 @@ Nadchodzące tytuły,
 Popularnych aktorów
 
 Strona oferuje możliwość logowania i rejestracji. Skrypt zapisuje dane do localStorage, więc nie trzeba się wciąż logować.
+Po zalogowaniu pojawia się okienko użytkownika, w nim informacje o nazwie, emailu, zdjęciu, oraz przycisk do usuwania konta. Po usunięciu konta dane z przeglądarki są czyszczone.
 Niestety nie udało mi się tego zaimplementować tego co planowałem.
 Napisałem serwer Backend, jest nawet dostępny online, baza danych również. Kod do backend'u również znajduje się w folderze z projektem.
 
