@@ -3,11 +3,9 @@ package com.example.movis.backend.controller;
 import com.example.movis.backend.model.User;
 import com.example.movis.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
-import java.beans.Transient;
 import java.util.*;
 
 
@@ -37,6 +35,17 @@ public class UserController {
             return userRepository.save(user);
         else
             return null;
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping("/edituser")
+    public User editUser(@ModelAttribute User user){
+        Long id = user.getUserid();
+        User temp = userRepository.findByUserid(id);
+        temp.setUserName(user.getUserName());
+        temp.setEmail(user.getEmail());
+        temp.setPassword(user.getPassword());
+        return userRepository.save(user);
     }
 
     @CrossOrigin(origins = "*")

@@ -3,7 +3,7 @@ var allData = [];
 var httpReq = new XMLHttpRequest();
 getData("movie/popular");
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://vmi616437.contaboserver.net/movies/';
 
 function getData(param) {
 	httpReq.open("GET", "https://api.themoviedb.org/3/" + param + "?api_key=49b70ab4813b76538e0fa33feb7ed45b")
